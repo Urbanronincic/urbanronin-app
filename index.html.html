@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urban Roamer App</title>
+<style>
+  body { font-family: Arial, sans-serif; padding: 20px; }
+  .file-thumb { display: inline-block; margin: 5px; }
+  .file-thumb img { width: 60px; height: 60px; object-fit: cover; display: block; }
+</style>
+</head>
+<body>
+
+<h1>Pupil Manager</h1>
+
+<div>
+  <input id="pFirst" placeholder="First Name">
+  <input id="pLast" placeholder="Last Name">
+  <input id="pCode" placeholder="Code (optional)">
+  <button data-action="addPupil">Add Pupil</button>
+</div>
+
+<h2>Pupils</h2>
+<div id="pupilList"></div>
+
+<script>
+// ============================================================
+// APP MODULE (NO GLOBALS)
+// ============================================================
+const App = (() => {
+
+  const DEFAULT_DB = {
+    pupils: [],
+    pupilDocs: []
+  };
+
+  let db = loadDB();
+  const docFileCache = {};
+  const pupilPhotos = {};
+
+  function loadDB() {
+    try {
+      const parsed = JSON.parse(localStorage.getItem("urData") || "{}");
+      return { ...DEFAULT_DB, ...parsed };
+    } catch {
+      return { ...DEFAULT_DB };
+    }
+  }
+
+  function saveDB() {
+    localStorage.setItem("urData", JSON.stringify(db));
+  }
+
+  function getEl(id) {
+    return document.getElementById(id) || null;
+  }
+
+  function getVal(id) {
+    const el = getEl(id);
+    return el ? el.value.trim() : "";
+  }
+
+  function showToast(msg) {
+    alert(msg);
+  }
+
+  function validateRequired(fields) {
+    for (const field of fields) {
+      if (!field.value) {
+        showToast(field.message);
+        return false;
+      }
+    }
+    return true;
+  }
+
+  function createEl(tag, text) {
+    const el = document.createElement(tag);
+    if (text) el.textContent = text;
+    return el;
+  }
+
+  function addPupil() {
+    const first = getVal("pFirst");
+    const last = getVal("pLast");
+
+    if (!validateRequired([
+      { value: first, message: "First name required" },
+      { value: last, message: "Last name required" }
+    ])) return;
+
+    db.pupils.push({
+      id: Date.now(),
+      first,
+      last,
+      code: getVal("pCode") || `UR${(db.pupils.length + 1).toString().padStart(3, "0")}`,
+      added: new Date().toISOString()
+    });
+
+    saveDB();
+
+    ["pFirst", "pLast", "pCode"].forEach(id => {
+      const el = getEl(id);
+      if (el) el.value = "";
+    });
+
+    renderPupilList();
+    showToast("Pupil added");
+  }
+
+  function renderPupilList() {
+    const container = getEl("pupilList");
+    if (!container) return;
+
+    container.textContent = "";
+
+    if (!db.pupils.length) {
+      container.textContent = "No pupils added";
+      return;
+    }
+
+    db.pupils.forEach(p => {
+      const row = createEl("div");
+      row.textContent = `${p.first} ${p.last} (${p.code})`;
+      container.appendChild(row);
+    });
+  }
+
+  function bindEvents() {
+    document.querySelectorAll("[data-action]").forEach(el => {
+      el.addEventListener("click", (e) => {
+        const action = el.dataset.action;
+        if (actions[action]) actions[action](e);
+      });
+    });
+  }
+
+  const actions = {
+    addPupil: () => addPupil()
+  };
+
+  function init() {
+    renderPupilList();
+    bindEvents();
+  }
+
+  return { init };
+
+})();
+
+document.addEventListener("DOMContentLoaded", () => {
+  App.init();
+});
+</script>
+
+</body>
+</html>
