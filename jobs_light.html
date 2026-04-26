@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urban Ronin CIC: Work With Us</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy-deep: #0d1e30;
+  --navy: #0d1e30;
+  --navy-mid: #0d1e30;
+  --mid: #2C5F8A;
+  --light: #D5E3F0;
+  --green: #2E8707;
+  --green-light: #3daa0a;
+  --green-dim: #1d5a05;
+  --white: #ffffff;
+  --smoke: #e8e4de;
+  --muted: rgba(232,228,222,0.55);
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'Courier Prime', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: #0d1e30;
+  background-image: url("image1.jpg");
+  background-repeat: repeat;
+  background-size: 500px auto;
+  color: var(--smoke);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 4vw;
+  padding-left: 2vw;
+  background: rgba(10,20,35,0.98);
+  backdrop-filter: blur(8px);
+  border-bottom: 2px solid var(--green);
+}
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+.nav-logo-img {
+  width: 82px;
+  height: 82px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 16px rgba(46,135,7,0.6));
+}
+.nav-title-img {
+  height: 72px;
+  object-fit: contain;
+  margin-left: -8px;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.nav-links a {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--smoke); }
+nav a.cta-nav {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--navy-deep);
+  background: var(--green);
+  padding: 0.55rem 1.3rem;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+nav a.cta-nav:hover { background: var(--green-light); }
+
+/* TICKER */
+.ticker-wrap {
+  margin-top: 65px;
+  overflow: hidden;
+  background: var(--green);
+  padding: 0.55rem 0;
+  white-space: nowrap;
+}
+.ticker-inner {
+  display: inline-block;
+  animation: ticker 22s linear infinite;
+}
+.ticker-inner span {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--white);
+  padding: 0 2.5rem;
+}
+.ticker-inner span::before {
+  content: '◆';
+  margin-right: 2.5rem;
+  opacity: 0.6;
+}
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* PAGE HEADER */
+.page-header {
+  padding: 7rem 4vw 5rem;
+  border-bottom: 1px solid rgba(46,135,7,0.2);
+}
+.page-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 1rem;
+}
+.page-header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 0.93;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+.page-header h1 em {
+  font-style: normal;
+  color: var(--green-light);
+}
+.page-header p {
+  max-width: 640px;
+  font-size: 1.05rem;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 1.75;
+}
+.page-header p strong { color: var(--smoke); font-weight: 500; }
+
+/* PRINCIPLES STRIP */
+.principles {
+  background: rgba(13,30,48,0.85);
+  background-image: url("image3.png");
+  background-repeat: repeat;
+  background-size: 700px auto;
+  padding: 5rem 4vw;
+  min-height: 300px;
+}
+.principles h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #1a1a1a;
+  margin-bottom: 2rem;
+}
+.principles h2 em { font-style: normal; color: var(--green-dim); }
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+.principle {
+  background: rgba(255,255,255,0.55);
+  padding: 1.5rem;
+  border-left: 3px solid var(--green);
+  backdrop-filter: blur(4px);
+}
+.principle-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #0d1e30;
+  margin-bottom: 0.5rem;
+}
+.principle-body {
+  font-size: 0.88rem;
+  color: #2a2a2a;
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+/* ROLES SECTION */
+.roles-section {
+  padding: 6rem 4vw;
+}
+.section-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 0.8rem;
+}
+.roles-section h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.5vw, 4rem);
+  line-height: 0.95;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 3rem;
+}
+.roles-section h2 em { font-style: normal; color: var(--green-light); }
+
+/* ROLE CARD */
+.role-card {
+  background: rgba(13,30,48,0.75);
+  border: 1px solid rgba(44,95,138,0.3);
+  margin-bottom: 2px;
+  transition: border-color 0.25s;
+}
+.role-card:hover { border-color: rgba(46,135,7,0.4); }
+.role-header {
+  padding: 2rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  cursor: pointer;
+  gap: 2rem;
+}
+.role-left { flex: 1; }
+.role-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 0.4rem;
+}
+.role-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 0.4rem;
+}
+.role-meta {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.6rem;
+}
+.role-meta-item {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.role-meta-item span {
+  color: var(--smoke);
+  font-weight: 500;
+}
+.role-toggle {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--green-light);
+  flex-shrink: 0;
+  transition: transform 0.25s;
+  line-height: 1;
+  margin-top: 0.2rem;
+}
+.role-card.open .role-toggle { transform: rotate(45deg); }
+
+.role-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+.role-card.open .role-body { max-height: 2000px; }
+.role-body-inner {
+  padding: 0 2.5rem 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  border-top: 1px solid rgba(44,95,138,0.2);
+  padding-top: 2rem;
+}
+.role-section-title {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 0.8rem;
+  margin-top: 1.2rem;
+}
+.role-section-title:first-child { margin-top: 0; }
+.role-body p {
+  font-size: 0.92rem;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 1.75;
+  margin-bottom: 0.8rem;
+}
+.role-body p strong { color: var(--smoke); font-weight: 500; }
+.role-list {
+  list-style: none;
+  padding: 0;
+}
+.role-list li {
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 1.6;
+  padding: 0.35rem 0;
+  padding-left: 1.2rem;
+  position: relative;
+}
+.role-list li::before {
+  content: '◆';
+  position: absolute;
+  left: 0;
+  color: var(--green);
+  font-size: 0.5rem;
+  top: 0.55rem;
+}
+.role-apply {
+  margin-top: 1.5rem;
+  display: inline-block;
+  background: var(--green);
+  color: var(--white);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.85rem 1.8rem;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.role-apply:hover { background: var(--green-light); }
+.mandatory-box {
+  background: rgba(46,135,7,0.08);
+  border: 1px solid rgba(46,135,7,0.25);
+  padding: 1.2rem 1.5rem;
+  margin-top: 1rem;
+}
+.mandatory-box .role-section-title { margin-top: 0; }
+
+/* SAFEGUARDING STATEMENT */
+.safeguarding {
+  background: rgba(13,30,48,0.85);
+  background-image: url("image3.png");
+  background-repeat: repeat;
+  background-size: 700px auto;
+  padding: 5rem 4vw;
+  min-height: 280px;
+}
+.safeguarding-inner {
+  max-width: 760px;
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(4px);
+  padding: 2.5rem;
+  border-left: 3px solid var(--green);
+}
+.safeguarding-inner .role-section-title { color: var(--green-dim); }
+.safeguarding-inner p {
+  font-size: 0.92rem;
+  color: #2a2a2a;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+/* FOOTER */
+footer {
+  padding: 2.5rem 4vw;
+  border-top: 1px solid rgba(46,135,7,0.2);
+  background: rgba(8,16,28,0.97);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.footer-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.footer-logo-img { width: 32px; height: 32px; object-fit: contain; opacity: 0.7; }
+.footer-wordmark {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+.footer-wordmark span { color: var(--green-light); }
+.footer-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+.footer-links a {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--smoke); }
+.footer-cic {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: rgba(232,228,222,0.2);
+  text-align: right;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .role-body-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+  .nav-links { display: none; }
+}
+@media (max-width: 600px) {
+  .principles-grid { grid-template-columns: 1fr; }
+  .role-header { flex-direction: column; gap: 0.5rem; }
+  footer { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-brand">
+    <img class="nav-logo-img" src="image4.png" alt="Urban Ronin CIC">
+    <img class="nav-title-img" src="image5.png" alt="Urban Ronin">
+  </a>
+  <div class="nav-links">
+    <a href="index.html#hypothesis">The Programme</a>
+    <a href="index.html#pillars">Framework</a>
+    <a href="index.html#contact">Funders</a>
+  </div>
+  <a href="mailto:info@urbanronin.co.uk?subject=Urban Ronin CIC: Application" class="cta-nav">Apply Now</a>
+</nav>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span>Work With Us</span>
+    <span>Sessional Roles</span>
+    <span>September 2026 – January 2027</span>
+    <span>Fair Pay: Benchmarked Rates</span>
+    <span>Enhanced DBS Required</span>
+    <span>Safer Recruitment Process</span>
+    <span>Leicester, East Midlands</span>
+    <span>Psychologically Planned Environment</span>
+    <span>All Staff in All Blocks</span>
+    <span>Work With Us</span>
+    <span>Sessional Roles</span>
+    <span>September 2026 – January 2027</span>
+    <span>Fair Pay: Benchmarked Rates</span>
+    <span>Enhanced DBS Required</span>
+    <span>Safer Recruitment Process</span>
+    <span>Leicester, East Midlands</span>
+    <span>Psychologically Planned Environment</span>
+    <span>All Staff in All Blocks</span>
+  </div>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-tag">Recruitment: Pilot Programme 2026</div>
+  <h1>Work With<br><em>Urban Ronin.</em></h1>
+  <p>We are building a small, highly specialist delivery team for our September 2026 pilot. We acknowledge that seasonal and part time work is a barrier: however we have big plans if we can show that what we do works.</p>
+  <p>These are not standard coaching roles. Every member of the Urban Ronin team participates in all three programme blocks: strength and conditioning, therapeutic group work, and Brazilian Jiu-Jitsu. <strong>Shared physical endeavour is the primary trust-building mechanism.</strong></p>
+  <p>If you are looking for a conventional sport or education role, this is not it. We are looking for mentors, role models and potentially the first person a young person has ever trusted. Our staff must embody this to the core.</p>
+</div>
+
+<!-- PRINCIPLES -->
+<div class="principles">
+  <h2>What We <em>Stand For</em></h2>
+  <div class="principles-grid">
+    <div class="principle">
+      <div class="principle-title">Fair Pay: Non-Negotiable</div>
+      <div class="principle-body">All rates are benchmarked against NHS AfC scales and freelance market rates. We do not ask anyone to work for exposure or goodwill. Long-term team quality depends on fair pay from day one.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-title">Relationships First</div>
+      <div class="principle-body">The relational scaffold is the precondition for everything else. We recruit for the ability to build consistent, genuine relationships with young people under pressure: not just technical competence.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-title">All Staff in All Blocks</div>
+      <div class="principle-body">Every team member participates across S&C, group work, and BJJ. This is a programme principle, not a scheduling convenience. You are not a specialist brought in for one hour: you are part of the therapeutic environment for the whole session.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-title">Evidence-Led Practice</div>
+      <div class="principle-body">Urban Ronin is led by an HCPC-registered Senior Forensic Psychologist. All staff operate within a clinically governed, evidence-based framework. Reflective practice and clinical supervision are built into the model.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ROLES -->
+<div class="roles-section">
+  <div class="section-tag">Current Vacancies: September 2026 Pilot</div>
+  <h2>Four Roles.<br><em>One Team.</em></h2>
+
+  <!-- ROLE 1: PROGRAMME LEAD / PSYCHOLOGY LEAD -->
+  <div class="role-card" id="role-psychology">
+    <div class="role-header" onclick="toggleRole('role-psychology')">
+      <div class="role-left">
+        <div class="role-tag">Clinical Lead</div>
+        <div class="role-title">Psychology Lead</div>
+        <div class="role-meta">
+          <div class="role-meta-item">Sessions: <span>16 sessions</span></div>
+          <div class="role-meta-item">Start: <span>September 2026</span></div>
+          <div class="role-meta-item">Status: <span style="color:var(--green-light);">Filled: not recruiting</span></div>
+        </div>
+      </div>
+      <div class="role-toggle">+</div>
+    </div>
+    <div class="role-body">
+      <div class="role-body-inner">
+        <div>
+          <div class="role-section-title">Role Overview</div>
+          <p>The Psychology Lead holds clinical authority over all programme decisions and serves as the Designated Safeguarding Lead. This role is the architect of the therapeutic environment: responsible for the clinical sequence of every session, the safeguarding infrastructure, and the integrity of the five-construct framework across 16 weeks. This role is currently filled for the pilot but is listed for transparency.</p>
+          <div class="role-section-title">Key Responsibilities</div>
+          <ul class="role-list">
+            <li>Hold the DSL role and all safeguarding decisions</li>
+            <li>Lead the therapeutic group work block each session</li>
+            <li>Participate in S&C and BJJ blocks alongside the cohort</li>
+            <li>Oversee outcome measurement at T0, T8 and T16</li>
+            <li>Provide clinical supervision to all delivery staff</li>
+            <li>Lead programme evaluation and funder reporting</li>
+          </ul>
+        </div>
+        <div>
+          <div class="role-section-title">Person Specification</div>
+          <ul class="role-list">
+            <li>HCPC-registered psychologist or equivalent clinical qualification</li>
+            <li>Experience in forensic, youth justice or SEMH settings</li>
+            <li>BJJ or martial arts experience desirable</li>
+            <li>Published or active in practice-based evidence</li>
+          </ul>
+          <div class="mandatory-box">
+            <div class="role-section-title">Mandatory Before First Session</div>
+            <ul class="role-list">
+              <li>Enhanced DBS with Children's Barred List</li>
+              <li>DSL training (recognised provider)</li>
+              <li>Safer Recruitment training</li>
+              <li>UKBJJA safeguarding compliance</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROLE 2: BJJ HEAD COACH -->
+  <div class="role-card" id="role-bjj">
+    <div class="role-header" onclick="toggleRole('role-bjj')">
+      <div class="role-left">
+        <div class="role-tag">Physical Lead</div>
+        <div class="role-title">BJJ Head Coach</div>
+        <div class="role-meta">
+          <div class="role-meta-item">Sessions: <span>16 sessions</span></div>
+          <div class="role-meta-item">Start: <span>September 2026</span></div>
+          <div class="role-meta-item">Status: <span style="color:var(--green-light);">Filled: not recruiting</span></div>
+        </div>
+      </div>
+      <div class="role-toggle">+</div>
+    </div>
+    <div class="role-body">
+      <div class="role-body-inner">
+        <div>
+          <div class="role-section-title">Role Overview</div>
+          <p>The BJJ Head Coach plans and delivers the Brazilian Jiu-Jitsu block across the 16-week arc. This is not a technical coaching role that happens to involve vulnerable young people: it is a relational role that happens to involve BJJ. The technical coaching matters. The relationship matters more. You drill alongside participants. You model the virtues. You are in the session for the whole session, every session.</p>
+          <div class="role-section-title">Key Responsibilities</div>
+          <ul class="role-list">
+            <li>Plan and deliver the BJJ block: consent-based, no-gi, trauma-informed</li>
+            <li>Establish and hold the tap rule as absolute from Session 1</li>
+            <li>Assign all participant pairings for positional and live work</li>
+            <li>Drill alongside participants: shared endeavour is the mechanism</li>
+            <li>Manage the sparring card progression framework</li>
+            <li>Monitor participant state during physical contact work continuously</li>
+            <li>Participate in arrival check-in and session close every session</li>
+            <li>Report all safeguarding concerns to the DSL immediately</li>
+          </ul>
+        </div>
+        <div>
+          <div class="role-section-title">Person Specification</div>
+          <ul class="role-list">
+            <li>Minimum BJJ brown belt: graded by a reputable academy</li>
+            <li>Experience coaching in a structured group setting</li>
+            <li>Background in health, care, youth work or community settings desirable</li>
+            <li>Ability to remain calm and consistent in dynamic environments</li>
+            <li>Non-reactive under pressure: this is non-negotiable</li>
+          </ul>
+          <div class="mandatory-box">
+            <div class="role-section-title">Mandatory Before First Session</div>
+            <ul class="role-list">
+              <li>Enhanced DBS with Children's Barred List</li>
+              <li>First Aid (in-person EFAW: online not accepted)</li>
+              <li>UKBJJA instructor licence and safeguarding link training</li>
+              <li>Urban Ronin CIC induction and programme protocols</li>
+            </ul>
+          </div>
+          <div style="display:flex;gap:0.8rem;flex-wrap:wrap;margin-top:1.5rem;">
+            <a href="mailto:info@urbanronin.co.uk?subject=BJJ Head Coach: Expression of Interest" class="role-apply" style="margin-top:0;">Express Interest</a>
+            <a href="UR_JD_BJJ_Head_Coach.pdf" target="_blank" class="role-apply" style="margin-top:0;background:transparent;border:1px solid var(--green);color:var(--green);">Download Full JD</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROLE 3: S&C LEAD -->
+  <div class="role-card" id="role-sc">
+    <div class="role-header" onclick="toggleRole('role-sc')">
+      <div class="role-left">
+        <div class="role-tag">Physiological Lead</div>
+        <div class="role-title">S&amp;C Lead</div>
+        <div class="role-meta">
+          <div class="role-meta-item">Sessions: <span>16 sessions</span></div>
+          <div class="role-meta-item">Start: <span>September 2026</span></div>
+          <div class="role-meta-item">Status: <span style="color:#c9a84c;">Recruiting</span></div>
+        </div>
+      </div>
+      <div class="role-toggle">+</div>
+    </div>
+    <div class="role-body">
+      <div class="role-body-inner">
+        <div>
+          <div class="role-section-title">Role Overview</div>
+          <p>The S&C Lead delivers the strength and conditioning block that opens every session. This is not a gym class. It is a neurobiological regulation protocol: structured calisthenics and progressive loading that creates BDNF release and cortisol reduction, priming the nervous system for the group work and BJJ that follow. You need to understand not just exercise programming but why the sequence matters clinically.</p>
+          <div class="role-section-title">Key Responsibilities</div>
+          <ul class="role-list">
+            <li>Plan and deliver the S&C block: 40 minutes, every session</li>
+            <li>Programme progressive loading appropriate to mixed ability and age</li>
+            <li>Monitor physical readiness and adapt intensity based on check-in data</li>
+            <li>Participate in the group work and BJJ blocks alongside the cohort</li>
+            <li>Contribute to the relational culture across the full session</li>
+            <li>Maintain equipment safety checks each session</li>
+            <li>Report all safeguarding concerns to the DSL immediately</li>
+          </ul>
+        </div>
+        <div>
+          <div class="role-section-title">Person Specification</div>
+          <ul class="role-list">
+            <li>Level 3 Personal Trainer qualification minimum</li>
+            <li>Experience programming for young people or mixed-ability groups</li>
+            <li>Interest in or experience of martial arts, combat sports or grappling desirable</li>
+            <li>Ability to build rapport with disengaged young people</li>
+            <li>Understanding of trauma-informed physical activity principles desirable</li>
+          </ul>
+          <div class="mandatory-box">
+            <div class="role-section-title">Mandatory Before First Session</div>
+            <ul class="role-list">
+              <li>Enhanced DBS with Children's Barred List</li>
+              <li>Safeguarding in Sport training (High Speed Training: free online)</li>
+              <li>Urban Ronin CIC induction and programme protocols</li>
+              <li>PLI insurance cover for youth coaching</li>
+            </ul>
+          </div>
+          <div style="display:flex;gap:0.8rem;flex-wrap:wrap;margin-top:1.5rem;">
+            <a href="mailto:info@urbanronin.co.uk?subject=S%26C Lead: Expression of Interest" class="role-apply" style="margin-top:0;">Apply Now</a>
+            <a href="UR_JD_SC_Lead.pdf" target="_blank" class="role-apply" style="margin-top:0;background:transparent;border:1px solid var(--green);color:var(--green);">Download Full JD</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROLE 4: PSYCHOSOCIAL PRACTITIONER -->
+  <div class="role-card" id="role-psychosocial">
+    <div class="role-header" onclick="toggleRole('role-psychosocial')">
+      <div class="role-left">
+        <div class="role-tag">Clinical Support</div>
+        <div class="role-title">Sports Psychosocial Practitioner</div>
+        <div class="role-meta">
+          <div class="role-meta-item">Sessions: <span>16 sessions</span></div>
+          <div class="role-meta-item">Start: <span>September 2026</span></div>
+          <div class="role-meta-item">Status: <span style="color:#c9a84c;">Recruiting</span></div>
+        </div>
+      </div>
+      <div class="role-toggle">+</div>
+    </div>
+    <div class="role-body">
+      <div class="role-body-inner">
+        <div>
+          <div class="role-section-title">Role Overview</div>
+          <p>The Sports Psychosocial Practitioner supports the delivery of structured therapeutic group work alongside the Psychology Lead, bringing psychological theory into the session in accessible, practical terms. The postholder participates across all three programme blocks and contributes to the relational culture of the programme throughout. A background in psychology, youth work or a related field is essential. BJJ experience is desirable.</p>
+          <p>This role involves working with a demanding cohort of young people who have undiagnosed or unmet needs. You will be expected to participate in reflective practice and clinical supervision, and to respond confidently and calmly to presenting crisis and dysregulation within sessions.</p>
+          <div class="role-section-title">Key Responsibilities</div>
+          <ul class="role-list">
+            <li>Co-facilitate therapeutic group work alongside the Psychology Lead: psychoeducation, PSHE, ASDAN portfolio, community meeting</li>
+            <li>Participate across S&C and BJJ blocks alongside the cohort</li>
+            <li>Build and maintain consistent, boundaried therapeutic relationships with participants</li>
+            <li>Model the Urban Ronin Code: seven virtues: by action throughout</li>
+            <li>Support ASDAN portfolio documentation and evidence gathering</li>
+            <li>Report all safeguarding concerns to the DSL immediately</li>
+            <li>Participate in reflective practice and clinical supervision</li>
+          </ul>
+        </div>
+        <div>
+          <div class="role-section-title">Person Specification</div>
+          <ul class="role-list">
+            <li>NVQ Level 3 or above in Health & Social Care, Psychology, Youth Work or equivalent: essential</li>
+            <li>Experience co-facilitating structured group work or therapeutic groups: essential</li>
+            <li>Experience working with young people with mental health, SEMH or behavioural difficulties: essential</li>
+            <li>Degree in Psychology, Social Work, Counselling or related field: desirable</li>
+            <li>Experience in forensic, youth justice, CAMHS or alternative provision settings: desirable</li>
+            <li>Interest in or participation in martial arts or structured physical activity: desirable</li>
+          </ul>
+          <div class="mandatory-box">
+            <div class="role-section-title">Mandatory Before First Session</div>
+            <ul class="role-list">
+              <li>Enhanced DBS with Children's Barred List</li>
+              <li>Safeguarding in Sport training (High Speed Training: free online)</li>
+              <li>Urban Ronin CIC safer recruitment process</li>
+              <li>Programme induction</li>
+            </ul>
+          </div>
+          <div style="display:flex;gap:0.8rem;flex-wrap:wrap;margin-top:1.5rem;">
+            <a href="mailto:info@urbanronin.co.uk?subject=Sports Psychosocial Practitioner: Expression of Interest" class="role-apply" style="margin-top:0;">Apply Now</a>
+            <a href="Sports_Psychosocial_Practitioner_JD.pdf" target="_blank" class="role-apply" style="margin-top:0;background:transparent;border:1px solid var(--green);color:var(--green);">Download Full JD</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- SAFEGUARDING STATEMENT -->
+<div class="safeguarding">
+  <div class="safeguarding-inner">
+    <div class="role-section-title" style="color:var(--green-dim);">Safeguarding Statement</div>
+    <p>Urban Ronin CIC is committed to safeguarding and promoting the welfare of children and young people. All posts are subject to an enhanced DBS check with Children's Barred List check. References will be sought and verified before any appointment is confirmed. This organisation follows safer recruitment procedures aligned with Keeping Children Safe in Education 2025 and Working Together to Safeguard Children 2026. The Designated Safeguarding Lead is an HCPC-registered Senior Forensic Psychologist. Online-only first aid training is not accepted in lieu of in-person qualifications where in-person is specified. Appointment to any role is subject to satisfactory completion of all safer recruitment requirements.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.html" class="footer-brand">
+    <img class="footer-logo-img" src="image4.png" alt="Urban Ronin CIC">
+    <div class="footer-wordmark">URBAN <span>RONIN</span> CIC</div>
+  </a>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#hypothesis">The Programme</a>
+    <a href="index.html#contact">Funders</a>
+    <a href="mailto:info@urbanronin.co.uk">info@urbanronin.co.uk</a>
+  </div>
+  <div class="footer-cic">Urban Ronin CIC · Registered in England &amp; Wales<br>Leicester, UK · Community Interest Company</div>
+</footer>
+
+<script>
+  function toggleRole(id) {
+    const card = document.getElementById(id);
+    const isOpen = card.classList.contains('open');
+    document.querySelectorAll('.role-card.open').forEach(c => c.classList.remove('open'));
+    if (!isOpen) card.classList.add('open');
+  }
+</script>
+</body>
+</html>
